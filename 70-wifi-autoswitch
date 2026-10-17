@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# NetworkManager dispatcher: $1 = interface, $2 = event
+set -euo pipefail
+
+event="${2:-}"
+
+case "$event" in
+  up | down | connectivity-change) ;;
+  *) exit 0 ;;
+esac
+
+wired_connected() {
+  nmcli -t -f TYPE,STATE device | grep -q '^ethernet:connected$'
+}
+
+if wired_connected; then
+  nmcli radio wifi off
+  logger -t wifi-autoswitch "Ethernet connected: Wi-Fi off"
+else
+  nmcli radio wifi on
+  logger -t wifi-autoswitch "Ethernet disconnected: Wi-Fi on"
+fi
