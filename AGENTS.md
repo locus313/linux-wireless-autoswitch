@@ -1,3 +1,7 @@
+## Checks
+
+Run `make check` before every push (setup in the README's Development section).
+
 ## Agent skills
 
 ### Issue tracker
