@@ -7,6 +7,6 @@
 - [x] Add GitHub Actions CI (shellcheck + BATS)
 - [x] Add CHANGELOG.md
 - [x] Add drift check: installed path in `install.sh` matches README
-- [ ] Decide on a manual override (e.g. a flag file to disable auto-switching)
+- [x] Decide on a manual override (e.g. a flag file to disable auto-switching)
 - [ ] Consider handling dispatcher `hostname`/`dhcp4-change` events if toggling misses cases
 - [ ] Optional: package as an RPM/COPR for Fedora

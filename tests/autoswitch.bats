@@ -50,6 +50,13 @@ run_script() {
   [ ! -s "$CALLS" ]
 }
 
+@test "disable file stops all switching" {
+  touch "$BATS_TEST_TMPDIR/off"
+  WIFI_AUTOSWITCH_DISABLE_FILE="$BATS_TEST_TMPDIR/off" MOCK_DEVICES='ethernet:connected' run_script eth0 up
+  [ "$status" -eq 0 ]
+  [ ! -s "$CALLS" ]
+}
+
 @test "install path in install.sh matches README" {
   dest=$(sed -n 's/^DEST="\(.*\)"$/\1/p' "$ROOT/install.sh" | sed 's/\${SCRIPT_NAME}/70-wifi-autoswitch/')
   grep -qF "$dest" "$ROOT/README.md"

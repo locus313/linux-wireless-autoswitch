@@ -3,6 +3,9 @@
 set -euo pipefail
 
 event="${2:-}"
+disable_file="${WIFI_AUTOSWITCH_DISABLE_FILE:-/etc/wifi-autoswitch.disabled}"
+
+[[ -e "$disable_file" ]] && exit 0
 
 case "$event" in
   up | down | connectivity-change) ;;
