@@ -9,4 +9,5 @@
 - [x] Add drift check: installed path in `install.sh` matches README
 - [x] Decide on a manual override (e.g. a flag file to disable auto-switching)
 - [x] Consider handling dispatcher `hostname`/`dhcp4-change` events (not needed: plug/unplug tested on Fedora 44 with no missed cases)
-- [x] Package as an RPM (`wifi-autoswitch.spec`); COPR publishing still optional
+- [x] Package as an RPM (`wifi-autoswitch.spec`)
+- [ ] Publish to COPR (spec and `v0.1.0` tag are ready)
