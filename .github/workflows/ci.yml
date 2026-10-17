@@ -16,3 +16,11 @@ jobs:
         run: shellcheck 70-wifi-autoswitch install.sh
       - name: BATS
         run: bats tests
+
+  rpm:
+    runs-on: ubuntu-latest
+    container: fedora:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint spec
+        run: dnf install -y rpmlint && rpmlint wifi-autoswitch.spec

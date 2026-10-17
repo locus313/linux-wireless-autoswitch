@@ -29,6 +29,15 @@ While the file exists, the script leaves the Wi-Fi radio alone.
 journalctl -t wifi-autoswitch -f
 ```
 
+## Development
+
+```bash
+sudo dnf install -y bats ShellCheck rpm-build rpmlint
+make check   # shellcheck + BATS + rpmlint on the spec
+```
+
+CI runs the same checks.
+
 ## Notes
 
 - Any NetworkManager device of type `ethernet` counts (USB and Thunderbolt adapters included); bridges, VPNs and virtual devices do not.
